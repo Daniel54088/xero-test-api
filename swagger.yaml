@@ -1,0 +1,37 @@
+tags:
+- name: users
+  description: users API
+
+paths:
+# [GET] users
+  /xero/balance-sheet:
+    get:
+      tags:
+      - reports
+      summary: get reports
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+
+
+
+# definitions
+definitions:
+  users:
+    type: object
+    required:
+        - email
+        - password
+    properties:
+      email:
+        type: string
+        description: user Email
+      password:
+        type: string
+        description: user Password
+
+schemes:
+ - https
+ - http

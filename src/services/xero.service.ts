@@ -17,9 +17,12 @@ export class XeroService {
     }
   }
 
-  private async getBalanceSheetFromXero(getBalanceSheetEndpoint: string): Promise<{ reports: Reports }> {
+  private async getBalanceSheetFromXero(xeroBalanceSheetEndpoint: string): Promise<{ reports: Reports }> {
     try {
-      const response = await axios.get(getBalanceSheetEndpoint);
+      console.log('xeroBalanceSheetEndpoint:', xeroBalanceSheetEndpoint);
+      const response = await axios.get(xeroBalanceSheetEndpoint);
+
+      console.log('response', response);
       const data = response.data;
 
       // Validate the data against the schema
@@ -27,6 +30,7 @@ export class XeroService {
 
       return { reports: parsedData };
     } catch (error) {
+      console.log('error:', error);
       if (axios.isAxiosError(error)) {
         // Handle Axios errors
         console.error('HTTP error fetching data:', error.message);

@@ -15,9 +15,14 @@ COPY . .
 
 # Set environment variable
 ENV NODE_ENV development
+ENV PORT 3001
+ENV XERO_API_ENDPOINT http://localhost:3000
+ENV ORIGIN http://localhost:3002
+ENV CREDENTIALS true
 
 # Expose port 3001
 EXPOSE 3001
 
 # Run the application
 CMD ["npm", "run", "dev"]
+

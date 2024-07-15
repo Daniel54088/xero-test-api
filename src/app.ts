@@ -43,6 +43,7 @@ export class App {
   }
 
   private initializeMiddlewares() {
+    console.log('ORIGIN', ORIGIN);
     this.app.use(morgan(LOG_FORMAT, { stream }));
     this.app.use(cors({ origin: ORIGIN, credentials: CREDENTIALS }));
     this.app.use(hpp());
